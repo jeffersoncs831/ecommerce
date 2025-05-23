@@ -1,29 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce</title>
+    <title>sneakers</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-        @theme{
-            --color-laranja: hsl(26, 100%, 55%);
-            --color-laranja-claro: hsl(25, 100%, 94%);
-        }
-    </style>
-
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </head>
-<body class="bg-laranja">
-    <header class="flex  gap-[60px] items-center justify-between">
-        <h1 class="font-bold text-3xl ">sneakers</h1>
-        <ul class="flex gap-[35px]">
-            <a href="">coleção</a>
-            <a href="">Masculino</a>
-            <a href="">Feminino</a>
-            <a href="">Sobre</a>
-            <a href="">Contato</a>
-        </ul>
-        <img class="avatar" src="./images/image-avatar.png">
-    </header>
+<body>
+    <header class="relative z-50">
+    <nav class="flex md:items-center p-5 bg-white shadow justify-between">
+      <div class="md:flex inline-flex">
+        <span class="max-sm:pr-3 text-3xl cursor-pointer md:hidden block">
+          <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+        </span>
+        <span class="text-2xl font-bold">SNEAKERS</span>
+      </div>
+      <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+        <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Collections</a></li>
+        <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Mens</a></li>
+        <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Women</a></li>
+        <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">About</a></li>
+        <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Contact</a></li>
+      </ul>
+      <div class="flex">
+        <img class="h-8 mr-4" src="./images/cart.png" />
+        <img class="h-8" src="./images/image-avatar.png" />
+      </div>
+    </nav>
+  </header>
+  <main>
+  <div class="w-full max-w-xl mx-auto z-[-1]">
+        <div class="relative overflow-hidden shadow-lg ">
+            <!-- Slides -->
+            <div id="slides" class="flex transition-transform duration-500 ">
+                <img src="./images/image-product-1.jpg" class="w-full flex-shrink-0">
+                <img src="./images/image-product-2.jpg"class="w-full flex-shrink-0">
+                <img src="./images/image-product-4.jpg" class="w-full flex-shrink-0">
+                <img src="./images/image-product-3.jpg" class="w-full flex-shrink-0">
+            </div>
+            <!-- Botões de navegação -->
+            <button onclick="prevSlide()" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white text-black rounded-full p-2 shadow">
+                <img class="w-4" src="./images/angulo-esquerdo.png" alt="prev">
+            </button>
+            <button onclick="nextSlide()" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-black rounded-full p-2 shadow">
+                <img class="w-4" src="./images/angulo-direito.png" alt="next">
+            </button>
+  </main>
+  <script>
+    function Menu(e) {
+        let list = document.querySelector("ul");
+        e.name === "menu"
+          ? ((e.name = "close"),
+            list.classList.add("top-[60px]"),
+            list.classList.add("opacity-100"))
+          : ((e.name = "menu"),
+            list.classList.remove("top-[60px]"),
+            list.classList.remove("opacity-100"));
+    }
+
+    const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+        let index = 0;
+
+        function showSlide() {
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            index = (index + 1) % totalSlides;
+            showSlide();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalSlides) % totalSlides;
+            showSlide();
+        }
+  </script>
 </body>
 </html>
