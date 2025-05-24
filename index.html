@@ -16,7 +16,7 @@
         </span>
         <span class="text-2xl font-bold">SNEAKERS</span>
       </div>
-      <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+      <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white left-[-100%] fixed top-0 h-full  w-3/5 left-0 md:w-auto md:py-0 py-16 md:pl-0 pl-7 md:opacity-100 opacity-0 left-[-400px] transition-all ease-in duration-500">
         <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Collections</a></li>
         <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Mens</a></li>
         <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Women</a></li>
@@ -46,16 +46,52 @@
             <button onclick="nextSlide()" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-black rounded-full p-2 shadow">
                 <img class="w-4" src="./images/angulo-direito.png" alt="next">
             </button>
+    </div>
+  </div>
+
+   <div class="p-6">
+  <h2 class="uppercase text-sm tracking-widest text-orange-500 font-bold">
+    Sneaker Company
+  </h2>
+
+     <h1 class="text-3xl font-bold my-4">
+    Fall Limited Edition Sneakers
+  </h1>
+    <p class="text-gray-500 mb-6">
+    These low-profile sneakers are your perfect casual wear companion.
+    Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
+  </p>
+
+   <div class="flex items-center justify-between md:flex-col md:items-start">
+    <div class="flex items-center gap-4">
+      <span class="text-3xl font-bold">$125.00</span>
+      <span class="bg-orange-100 text-orange-500 font-bold px-2 rounded">50%</span>
+    </div>
+    <div>
+      <span class="line-through text-gray-400 font-bold">$250.00</span>
+    </div>
+   </div>
+   <div class="bg-gray-100 rounded-lg flex items-center justify-between px-5 py-3 mb-4">
+  <button class="text-orange-500 font-bold text-2xl">-</button>
+  <span class="font-bold">0</span>
+  <button class="text-orange-500 font-bold text-2xl">+</button>
+</div>
+
+<!-- Botão Add to cart -->
+<button class="bg-orange-500 hover:bg-orange-600 text-white w-full flex items-center justify-center gap-3 py-4 rounded-lg shadow-lg">
+  <img src="./images/cart.png" class="w-5" alt="cart">
+  Add to cart
+</button>
   </main>
   <script>
     function Menu(e) {
         let list = document.querySelector("ul");
         e.name === "menu"
           ? ((e.name = "close"),
-            list.classList.add("top-[60px]"),
+            list.classList.add("left-[0px]"),
             list.classList.add("opacity-100"))
           : ((e.name = "menu"),
-            list.classList.remove("top-[60px]"),
+            list.classList.remove("left-[0px]"),
             list.classList.remove("opacity-100"));
     }
 
