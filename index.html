@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +8,16 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </head>
 <body>
-    <header class="relative z-50">
+    <header class="relative z-2">
     <nav class="flex md:items-center p-5 bg-white shadow justify-between">
-      <div class="md:flex inline-flex">
+      <div class="md:flex inline-flex z-3">
         <span class="max-sm:pr-3 text-3xl cursor-pointer md:hidden block">
-          <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+          <ion-icon  name="menu" onclick="Menu(this)"></ion-icon>
         </span>
         <span class="text-2xl font-bold">SNEAKERS</span>
       </div>
-      <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white left-[-100%] fixed top-0 h-full  w-3/5 left-0 md:w-auto md:py-0 py-16 md:pl-0 pl-7 md:opacity-100 opacity-0 left-[-400px] transition-all ease-in duration-500">
+     
+      <ul class="md:flex md:items-center md:z-auto md:static absolute bg-white left-[-100%] fixed top-0 h-full  w-3/5 left-0 md:w-auto md:py-0 py-16 md:pl-0 pl-7 md:opacity-100 opacity-0 left-[-400px] transition-all ease-in duration-500">
         <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Collections</a></li>
         <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Mens</a></li>
         <li class="mx-4 my-6 md:my-0"><a class="text-lg" href="#">Women</a></li>
@@ -50,7 +51,7 @@
   </div>
 
    <div class="p-6">
-  <h2 class="uppercase text-sm tracking-widest text-orange-500 font-bold">
+  <h2 class="uppercase text-sm tracking-widest text-gray-400 font-bold">
     Sneaker Company
   </h2>
 
@@ -72,9 +73,9 @@
     </div>
    </div>
    <div class="bg-gray-100 rounded-lg flex items-center justify-between px-5 py-3 mb-4">
-  <button class="text-orange-500 font-bold text-2xl">-</button>
-  <span class="font-bold">0</span>
-  <button class="text-orange-500 font-bold text-2xl">+</button>
+    <button onclick="diminuir()" class="text-orange-500 font-bold">-</button>
+    <span class="quantidade" id="quantidade">0</span>
+    <button onclick="adicionar()" class="text-orange-500 font-bold">+</button>
 </div>
 
 <!-- Botão Add to cart -->
@@ -83,7 +84,9 @@
   Add to cart
 </button>
   </main>
+
   <script>
+
     function Menu(e) {
         let list = document.querySelector("ul");
         e.name === "menu"
@@ -94,7 +97,7 @@
             list.classList.remove("left-[0px]"),
             list.classList.remove("opacity-100"));
     }
-
+      
     const slides = document.getElementById('slides');
         const totalSlides = slides.children.length;
         let index = 0;
@@ -112,6 +115,25 @@
             index = (index - 1 + totalSlides) % totalSlides;
             showSlide();
         }
+
+        let quantidade = 0;
+    const quantidadeSpan = document.getElementById("quantidade");
+
+    function adicionar() {
+      quantidade++;
+      atualizarQuantidade();
+    }
+
+    function diminuir() {
+      if (quantidade > 0) {
+        quantidade--;
+        atualizarQuantidade();
+      }
+    }
+
+    function atualizarQuantidade() {
+      quantidadeSpan.textContent = quantidade;
+    }
   </script>
 </body>
 </html>
